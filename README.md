@@ -6,6 +6,6 @@ pip-installable package to add VSCode to JupyterLab's Launcher menu using [jupyt
 
 First make sure code-server (i.e. VS Code) is properly installed in your JupyterLab environment and available on the system path. Next, install `jupyter-server-proxy` using either `conda` or `pip` (see link above), then
 
-    pip install git+https://github.com/NIVANorge/jupyter_vscode_proxy.git
+    pip install git+https://github.com/JJplane/jupyter_vscode_proxy.git
 
 A button to launch VS Code should be added to the JupyterLab Launcher menu.
