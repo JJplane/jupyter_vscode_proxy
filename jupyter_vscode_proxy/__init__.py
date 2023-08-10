@@ -23,27 +23,14 @@ def setup_vscode():
             raise FileNotFoundError("Can not find code-server in $PATH")
         # lstrip is used as a hack to deal with using paths in environments
         # when using git-bash on windows
-        working_dir = os.getenv("CODE_WORKINGDIR", None).lstrip()
-        if working_dir is None:
-            working_dir = os.getenv("JUPYTER_SERVER_ROOT", ".")
-        elif os.path.isdir(working_dir) is False:
-            os.mkdir(working_dir)
-        data_dir = os.getenv("CODE_USER_DATA_DIR", "")
-        if data_dir != "":
-            data_dir = "--user-data-dir=" + str(data_dir)
-        extensions_dir = os.getenv("CODE_EXTENSIONS_DIR", "")
-        if extensions_dir != "":
-            extensions_dir = "--extensions-dir=" + str(extensions_dir)
 
         return [
             full_path,
-            "--port",
-            "{port}",
+            "--bind-addr",
+            "127.0.0.1:" + str(port),
             "--auth",
             "none",
-            data_dir,
-            extensions_dir,
-            working_dir,
+            "--disable-telemetry"
         ]
 
     return {
